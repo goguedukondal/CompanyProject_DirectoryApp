@@ -2,10 +2,11 @@ import "./App.css";
 
 import RetrieveInformation from "./Components/RetrieveInformation";
 import AddNewPerson from "./Components/AddNewPerson";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 function App() {
   const [user, setUser] = useState([]);
+  const [localdata,setLocalData] = useState(null)
 
   const [addButton, setAddButton] = useState(false);
   const [addNewPerson, setAddNewPerson] = useState(true);
@@ -16,6 +17,8 @@ function App() {
       return element.Adhar_Number !== Adhar_Number;
     });
     setUser(filteredUser);
+    
+    
   }
 
   const handleRetrieveButton = () => {
@@ -30,6 +33,11 @@ function App() {
   const addButtonClicked = () => {
     setAddButton(true);
   };
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("user"));
+    setLocalData(data);
+  }, [user]);
+  
 
   return (
     <div className="App">
@@ -48,6 +56,7 @@ function App() {
           <h3>Add New Person</h3>
           <AddNewPerson
             user={user}
+            localdata={localdata}
             del={del}
             addButton={addButton}
             setUser={setUser}
@@ -59,7 +68,7 @@ function App() {
       ) : (
         <div className="tableContainer">
           <h3>Retrieve Information</h3>
-          <RetrieveInformation user={user} />
+          <RetrieveInformation user={localdata} />
         </div>
       )}
     </div>
