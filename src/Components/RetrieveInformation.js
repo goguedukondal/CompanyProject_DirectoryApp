@@ -1,9 +1,8 @@
 import React, { useRef, useState } from "react";
-// import { useContext } from 'react'
-// import { myContext } from './Context'
+
 
 function RetrieveInformation({ user }) {
-  // const [user]=useContext(myContext)
+ 
 
   const [data, setData] = useState("");
 
@@ -17,7 +16,7 @@ function RetrieveInformation({ user }) {
     });
     setData(filterD);
   };
-  //console.log(data[0].Name)
+
 
   return (
     <>
