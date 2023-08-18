@@ -3,7 +3,7 @@ import AddNewRow from "./AddNewRow";
 
 import Data from "./Data";
 
-function AddNewPerson({ user, del, addButton, setUser }) {
+function AddNewPerson({ user, del, addButton, setUser,localdata }) {
   return (
     <>
       <table>
@@ -19,7 +19,7 @@ function AddNewPerson({ user, del, addButton, setUser }) {
         </thead>
 
         <tbody>
-          <Data user={user} del={del} />
+          <Data localdata={localdata} del={del} />
           {addButton ? <AddNewRow user={user} setUser={setUser} /> : ""}
         </tbody>
       </table>
