@@ -1,7 +1,7 @@
 import React from "react";
 
-function Data({ user, del }) {
-  return user.map((item) => (
+function Data({ localdata, del }) {
+  return  localdata!==null&&localdata.map((item) => (
     <tr key={item.Adhar_Number}>
       <td className="t1 t3">{item.Name}</td>
       <td className="t1 t3">{item.Date_Of_Birth}</td>
